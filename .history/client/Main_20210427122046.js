@@ -20,7 +20,7 @@ export default class Main extends React.Component {
     this.albumSelected = this.albumSelected.bind(this);
     this.resetSelectedAlbum = this.resetSelectedAlbum.bind(this);
     this.playSong = this.playSong.bind(this);
-    this.handleForward = this.handleForward.bind(this);
+    // this.handleForward = this.handleForward.bind(this);
   }
 
   componentDidMount(){
@@ -61,16 +61,12 @@ export default class Main extends React.Component {
 
   handleForward(){
     if(this.state.currentSong.id === this.state.selectedAlbum[0].songs.length){
-        const nextSong = this.state.selectedAlbum[0].songs[0]; // Going off of state
+        const nextSong = this.state.selectedAlbum[0].songs[0]; 
         this.setState({currentSong: nextSong, playing: true})
         this.playSong(this.state.currentSong.audioUrl, this.state.currentSong);
     }
     else{
         const nextSong = this.state.selectedAlbum[0].songs[this.state.currentSong.id];
-        console.log(this.state.currentSong)
-        console.log(nextSong)
-        console.log(this.state.selectedAlbum[0].songs)
-        console.log(this.state.currentSong.id)
         this.setState({currentSong: nextSong, playing: true})
         this.playSong(this.state.currentSong.audioUrl, this.state.currentSong);
     }
@@ -84,7 +80,7 @@ export default class Main extends React.Component {
         {this.state.loaded === true ? <SingleAlbum album_data = {this.state.selectedAlbum} playSong = {this.playSong} songPlaying = {this.state.playing} currentSong = {this.state.currentSong}/> : <AllAlbums album_data = {this.state.albums} handleClick = {this.albumSelected}/>}
         {/* <SingleAlbum album_data = {this.state.selectedAlbum}/> */}
         {/* {console.log(this.state.albums)} */}
-        <PlayerBar handleForward = {this.handleForward} playSong = {this.playSong} playStatus = {this.state.playing} currentSong = {this.state.currentSong} currentAlbum = {this.state.selectedAlbum}/>
+        <PlayerBar playSong = {this.playSong} playStatus = {this.state.playing} currentSong = {this.state.currentSong} currentAlbum = {this.state.selectedAlbum}/>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class PlayerBar extends React.Component{
                     <div className='row center'>
                     <i className='fa fa-step-backward'></i>
                     <i onClick = {() => {this.props.playSong(this.props.currentSong.audioUrl, this.props.currentSong)}} className= {this.props.playStatus === true ? 'fa fa-pause-circle' : 'fa fa-play-circle'}></i>
-                    <i className='fa fa-step-forward' onClick = {this.props.handleForward}></i>
+                    <i className='fa fa-step-forward' onClick = {this.props.handleForward()}></i>
                     </div>
                 </div>
             </div>
