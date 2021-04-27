@@ -59,22 +59,18 @@ export default class Main extends React.Component {
     }
   }
 
-  // handleForward(){
-  //   if(this.state.currentSong.id === this.state.selectedAlbum[0].songs.length){
-  //       const nextSong = this.state.selectedAlbum[0].songs[0]; // Going off of state
-  //       this.setState({currentSong: nextSong, playing: true})
-  //       this.playSong(this.state.currentSong.audioUrl, this.state.currentSong);
-  //   }
-  //   else{
-  //       const nextSong = this.state.selectedAlbum[0].songs[this.state.currentSong.id];
-  //       console.log(this.state.currentSong)
-  //       console.log(nextSong)
-  //       console.log(this.state.selectedAlbum[0].songs)
-  //       console.log(this.state.currentSong.id)
-  //       this.setState({currentSong: nextSong, playing: true})
-  //       this.playSong(this.state.currentSong.audioUrl, this.state.currentSong);
-  //   }
-  // }
+  handleForward(){
+    if(this.state.currentSong.id === this.state.selectedAlbum[0].songs.length){
+        const nextSong = this.state.selectedAlbum[0].songs[0]; 
+        this.setState({currentSong: nextSong, playing: true})
+        this.playSong(this.state.currentSong.audioUrl, this.state.currentSong);
+    }
+    else{
+        const nextSong = this.state.selectedAlbum[0].songs[this.state.currentSong.id];
+        this.setState({currentSong: nextSong, playing: true})
+        this.playSong(this.state.currentSong.audioUrl, this.state.currentSong);
+    }
+  }
 
   render () {
     return (
